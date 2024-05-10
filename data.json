@@ -1,0 +1,45 @@
+{
+    "type": "directory",
+    "name": "documents/",
+    "contents": [
+      {
+        "type": "directory",
+        "name": "customer 555",
+        "contents": [
+          {
+            "type": "directory",
+            "name": "product 1",
+            "contents": [
+              {
+                "type": "directory",
+                "name": "product 1.2",
+                "contents": [
+                  {
+                    "type": "directory",
+                    "name": "changes",
+                    "contents": [
+                      {
+                        "type": "file",
+                        "name": "changes.zip"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "directory",
+                    "name": "document 8",
+                    "contents": [
+                      {
+                        "type": "file",
+                        "name": "48555 001 00-8.pdf"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+  
