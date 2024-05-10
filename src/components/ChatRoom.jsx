@@ -1,9 +1,10 @@
+// components/ChatRoom/ChatRoom.jsx
 import React, { useEffect, useRef, useState } from 'react';
 import io from 'socket.io-client';
 
 const socket = io();
 
-const ChatRoom = ({ data }) => {
+const ChatRoom = ({ dataUrl }) => {
   const messagesEndRef = useRef(null);
   const [messages, setMessages] = useState([]);
   const [username, setUsername] = useState('');
@@ -11,6 +12,15 @@ const ChatRoom = ({ data }) => {
   const [newMessage, setNewMessage] = useState('');
 
   useEffect(() => {
+    fetch(dataUrl)
+      .then(response => response.json())
+      .then(data => {
+        setMessages(data.messages);
+      })
+      .catch(error => {
+        console.error('Error fetching data:', error);
+      });
+
     socket.on('initialMessages', (initialMessages) => {
       setMessages(initialMessages);
     });
@@ -42,7 +52,7 @@ const ChatRoom = ({ data }) => {
     socket.on('success', (message) => {
       setMessages((prevMessages) => [...prevMessages, { success: message }]);
     });
-  }, []);
+  }, [dataUrl]);
 
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
