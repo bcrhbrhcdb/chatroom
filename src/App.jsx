@@ -1,11 +1,10 @@
 import React from 'react';
-import ChatRoom from './ChatRoom';
-import data from '../public/data.json';
+import ChatRoom from './components/ChatRoom';
 
 function App() {
   return (
     <div>
-      <ChatRoom data={data} />
+      <ChatRoom dataUrl={`${process.env.PUBLIC_URL}/data.json`} />
     </div>
   );
 }
